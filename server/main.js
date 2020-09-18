@@ -1,7 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { TasksCollection } from "../imports/api/TasksCollection";
 
-const insertTask = taskText => TasksCollection.insert({ text: taskText });
+const insertTask = taskText => TasksCollection.insert({ text: taskText, isChecked: false });
 
 Meteor.startup(() => {
   if (TasksCollection.find().count() === 0) {

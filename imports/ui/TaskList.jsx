@@ -6,9 +6,9 @@ const TaskList = ({ tasks }) => {
     <table className="table table-hover">
       <thead>
         <tr className="table-dark">
-          <th scope="col">Type</th>
-          <th scope="col">Column heading</th>
-          <th scope="col">Column heading</th>
+          <th scope="col">Status</th>
+          <th scope="col">Task Name</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
