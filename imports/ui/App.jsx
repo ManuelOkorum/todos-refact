@@ -53,7 +53,7 @@ const App = () => {
         <Fragment>
 
           <div className="d-flex flex-row-reverse" onClick={logout}>
-            <span class="badge badge-pill badge-warning"> <i className="fas fa-sign-out-alt"></i> </span> {user.username}
+            <span className="badge badge-pill badge-warning"> <i className="fas fa-sign-out-alt"></i> </span> {user.username}
           </div>
 
           <TaskForm />
