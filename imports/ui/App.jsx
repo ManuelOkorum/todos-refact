@@ -7,16 +7,37 @@ import TaskForm from './TaskForm';
 
 const App = () => {
 
-  const tasks = useTracker(() => TasksCollection.find({}, { sort: { createdAt: -1 } }).fetch());
+  const [hideCompleted, setHideCompleted] = useState(false);
 
-  //contador de tareas pendientes
-  const [pending, setPending] = useState(0);
+  const hideCompletedFilter = { isChecked: { $ne: true } };
+
+  const tasks = useTracker(() =>
+    TasksCollection.find(hideCompleted ? hideCompletedFilter : {}, {
+      sort: { createdAt: -1 },
+    }).fetch()
+  );
+
+  const pendingTasksCount = useTracker(() =>
+    TasksCollection.find(hideCompletedFilter).count()
+  );
+
+  const pendingTasksTitle = `${pendingTasksCount ? ` (${pendingTasksCount})` : ''
+    }`;
 
   return (
     <div className="container">
-      <h1 className="text-center">📝️ To Do List <span className="badge badge-danger">({pending})</span></h1>
+      <h1 className="text-center">📝️ To Do List <span className="badge badge-danger">{pendingTasksTitle}</span></h1>
 
       <TaskForm />
+
+      <div className="d-flex justify-content-center">
+        <button
+          className="btn btn-secondary mb-3"
+          onClick={() => setHideCompleted(!hideCompleted)}
+        >
+          {hideCompleted ? 'Show All' : 'Hide Completed'}
+        </button>
+      </div>
 
       <div className="d-flex justify-content-center">
         <TaskList
