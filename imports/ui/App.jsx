@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, { useState, Fragment } from 'react';
 import { useTracker } from 'meteor/react-meteor-data'
 import { TasksCollection } from '../api/TasksCollection';
@@ -54,7 +55,7 @@ const App = () => {
             <span class="badge badge-pill badge-warning"> <i className="fas fa-sign-out-alt"></i> </span> {user.username}
           </div>
 
-          <TaskForm user={user} />
+          <TaskForm />
 
           <div className="d-flex justify-content-center">
             <button

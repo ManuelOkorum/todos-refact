@@ -1,17 +1,23 @@
+import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 import { TasksCollection } from '../api/TasksCollection';
 import DeleteBtn from './DeleteBtn';
 
 const Task = ({ task }) => {
 
-  const onCheckboxClick = ({ _id, isChecked }) => {
-    TasksCollection.update(_id, {
-      $set: {
-        isChecked: !isChecked
-      }
-    });
+  const toggleChecked = ({ _id, isChecked }) => {
+    Meteor.call('tasks.setIsChecked', _id, !isChecked);
     isChecked ? setStatus("Pending") : setStatus("Complete");
   };
+
+  // const onCheckboxClick = ({ _id, isChecked }) => {
+  //   TasksCollection.update(_id, {
+  //     $set: {
+  //       isChecked: !isChecked
+  //     }
+  //   });
+  //   isChecked ? setStatus("Pending") : setStatus("Complete");
+  // };
 
   const [status, setStatus] = useState("Pending");
 
@@ -22,7 +28,7 @@ const Task = ({ task }) => {
           type="checkbox"
           className="form-check-input"
           checked={!!task.isChecked}
-          onClick={() => onCheckboxClick(task)}
+          onClick={() => toggleChecked(task)}
           readOnly
         />
         - {status}

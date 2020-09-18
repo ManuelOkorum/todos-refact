@@ -1,5 +1,5 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { TasksCollection } from '../api/TasksCollection';
 
 const DeleteBtn = ({ task }) => {
 
@@ -29,7 +29,7 @@ const DeleteBtn = ({ task }) => {
     })
   };
 
-  const deleteTask = ({ _id }) => TasksCollection.remove(_id);
+  const deleteTask = ({ _id }) => Meteor.call('tasks.remove', _id);
 
   return (
     <button
