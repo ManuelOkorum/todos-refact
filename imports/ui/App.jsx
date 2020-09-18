@@ -14,13 +14,16 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center">To do List <span className="badge badge-danger">({pending})</span></h1>
+      <h1 className="text-center">📝️ To Do List <span className="badge badge-danger">({pending})</span></h1>
 
       <TaskForm />
 
-      <TaskList
-        tasks={tasks}
-      />
+      <div className="d-flex justify-content-center">
+        <TaskList
+          tasks={tasks}
+        />
+      </div>
+
     </div>
   );
 };

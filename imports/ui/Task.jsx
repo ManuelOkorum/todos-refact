@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TasksCollection } from '../api/TasksCollection';
+import DeleteBtn from './DeleteBtn';
 
 const Task = ({ task }) => {
 
@@ -27,6 +28,9 @@ const Task = ({ task }) => {
         - {status}
       </td>
       <td> {task.text} </td>
+      <td>
+        <DeleteBtn task={task} />
+      </td>
     </tr>
   );
 };

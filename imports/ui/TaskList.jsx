@@ -3,7 +3,7 @@ import Task from './Task'
 
 const TaskList = ({ tasks }) => {
   return (
-    <table className="table table-hover">
+    <table className="table table-hover tb">
       <thead>
         <tr className="table-dark">
           <th scope="col">Status</th>

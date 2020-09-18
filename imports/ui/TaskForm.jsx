@@ -20,7 +20,7 @@ const TaskForm = () => {
 
   return (
     <form
-      className="form-row my-3 d-flex justify-content-center"
+      className="form-row my-3 pl-5 d-flex justify-content-center"
       onSubmit={handleSubmit}
     >
       <div className="col-sm-8">

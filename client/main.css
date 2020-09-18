@@ -1,3 +1,7 @@
 body {
     padding: 2rem;
 }
+
+.tb {
+    max-width: 45rem;
+}
