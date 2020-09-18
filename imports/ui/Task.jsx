@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
-import { TasksCollection } from '../api/TasksCollection';
 import DeleteBtn from './DeleteBtn';
 
 const Task = ({ task }) => {
